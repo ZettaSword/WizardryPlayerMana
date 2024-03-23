@@ -1,0 +1,41 @@
+{
+	"bookmark_start_section": "player_mana",
+	"colours": {
+		"text": "#000000",
+		"caption": "#666666",
+		"hyperlink": "#601ba0",
+		"highlight": "#dd4c1d",
+		"new_section": "#aaaaaa"
+	},
+	"images": {
+	},
+	"recipes": {
+
+	},
+	"sections": {
+		"player_mana": {
+			"title": "Mana in your body",
+			"include_in_contents": "main_contents",
+			"contents": {
+				"id": "player_mana",
+				"hyperlinks": true,
+				"page_numbers": true,
+				"separator": "."
+			},
+			"triggers": [
+				"ebwizardry:on_subsection_unlock"
+			]
+		},
+		"mana_pool": {
+			"title": "Mana Pool",
+			"include_in_contents": "player_mana",
+			"text": [
+				"Your Mana Pool is the amount of Mana your soul can gather and input into your body. Most Wizards nowadays can feel their mana pool as a bar of 10 spheres, which approximately shows the amount of mana in your body- one sphere is about 10% of your Mana Pool.",
+				"Your Mana Pool will grow with each usage- constant use of your Mana Pool causes your body to adapt and slowly be able to collect more Mana from its surroundings. But, there is a limit to how much Mana our physical bodies can hold, No matter if your race is Fairy, Dwarf or any others - this can't be changed as long as you are bound to your physical form.",
+				"In the old times, there was another social use for Mana- Wizards used their magic to make contracts with powerful, incorporeal souls that have no physical body. These rituals have since been lost to time, and nowadays Wizards use their Mana Pool to activate spells engraved in different items.",
+				"Magical items like magic wands usually can hold more than one spell, while usual items can only hold one. Usual items can be enchanted with a spell, and the process is named Artifice. This is method of own artefacts creation.",
+				"You can replenish your mana pool with mana flasks, you just need to exchange usual one into inner one, using any crafting grid available."
+			]
+		}
+	}
+}

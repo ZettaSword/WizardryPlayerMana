@@ -1,0 +1,16 @@
+[
+{
+  "modid": "player_mana",
+  "name": "Wizardry Player Mana",
+  "description": "Add-on for EBWiz, with it players will have mana pool they can use to cast spells and use magic!",
+  "version": "1.0.0",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ZettaSword"],
+  "credits": "Jashin_Rakurai / JadenR thanks for textures!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
