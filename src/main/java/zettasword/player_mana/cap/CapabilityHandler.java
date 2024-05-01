@@ -46,8 +46,8 @@ public class CapabilityHandler
         }
 
         NBTTagCompound tags = current.getEntityData();
-        tags.setDouble("maxMP", soul.getMaxMP());
-        tags.setDouble("MP", soul.getMP());
+        tags.setDouble("maxMP", maxMP);
+        tags.setDouble("MP", MP);
     }
 
     // This event is crucial to sync mana, races and stuff on player entering the world.

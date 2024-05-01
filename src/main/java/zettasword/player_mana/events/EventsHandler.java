@@ -50,10 +50,9 @@ public class EventsHandler extends EventsBase {
             new ResourceLocation(PlayerMana.MODID + ":textures/gui/bar_mana.png");
 
     @SideOnly(Side.CLIENT)
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onEntityShowcase(RenderGameOverlayEvent.Post event){
-        if (event.getType() != RenderGameOverlayEvent.ElementType.FOOD) return;
-        if (!Tales.mp.manaPoolBar) return;
+        if (event.getType() != RenderGameOverlayEvent.ElementType.HOTBAR) return;
 
         EntityPlayerSP player = Minecraft.getMinecraft().player;
 
@@ -63,32 +62,35 @@ public class EventsHandler extends EventsBase {
             if(soul == null) return;
             GlStateManager.enableBlend();
             Minecraft.getMinecraft().getTextureManager().bindTexture(bar_mana);
-            int left = event.getResolution().getScaledWidth() / 2 + 91;
-            int y = event.getResolution().getScaledHeight() - GuiIngameForge.right_height;
-            GuiIngameForge.right_height += 10;
+            int left = (event.getResolution().getScaledWidth() / 2 + 91) + Tales.mp.manaPoolX;
+            int height = GuiIngameForge.right_height + 10;
+            int y = (event.getResolution().getScaledHeight() - height) - Tales.mp.manaPoolY;
             double mana = soul.getMP();
             double maxMana = soul.getMaxMP();
             double manaValue = Math.floor(mana/maxMana * 20.0D);
 
-            for (int i = 0; i < 10; ++i) {
-                int idx = i * 2 + 1;
-                int x = left - i * 8 - 9;
+            if (Tales.mp.manaPoolBar) {
+                for (int i = 0; i < 10; ++i) {
+                    int idx = i * 2 + 1;
+                    int x = left - i * 8 - 9;
 
-                // Draw Background
-                DrawingUtils.drawTexturedRect(x, y, 0, 0, 9, 9,
-                        27, 9);
+                    // Draw Background
+                    DrawingUtils.drawTexturedRect(x, y, 0, 0, 9, 9,
+                            27, 9);
 
-                if (idx < manaValue) // 9 - full, 18 - half-full, 0 - zero
-                    DrawingUtils.drawTexturedRect(x, y, 9, 0,
-                            9, 9, 27, 9);
-                else if(idx == manaValue){
-                    DrawingUtils.drawTexturedRect(x, y, 18, 0,
-                            9, 9, 27, 9);
+                    if (idx < manaValue) // 9 - full, 18 - half-full, 0 - zero
+                        DrawingUtils.drawTexturedRect(x, y, 9, 0,
+                                9, 9, 27, 9);
+                    else if (idx == manaValue) {
+                        DrawingUtils.drawTexturedRect(x, y, 18, 0,
+                                9, 9, 27, 9);
+                    }
                 }
             }
 
             int x = left - 8 - 9;
-            Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(((int)Math.floor(mana))+ "", x + 20, y, 0x907FB8);
+            if (Tales.mp.manaPoolNumber)
+                Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(((int)Math.floor(mana))+ "", x + 20, y, 0x907FB8);
 
             Minecraft.getMinecraft().getTextureManager().bindTexture(Gui.ICONS);
             GlStateManager.disableBlend();
