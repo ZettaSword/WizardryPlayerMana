@@ -25,7 +25,7 @@ apply plugin: 'idea'
 apply plugin: CurseMavenPlugin
 apply plugin: 'maven-publish'
 
-version = '1.1.0'
+version = '1.2.0'
 group = 'zettasword.player_mana' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'player_mana'
 
