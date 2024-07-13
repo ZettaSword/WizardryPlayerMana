@@ -1,7 +1,7 @@
 ## PM Items
-item.player_mana:small_pool_flask.name=Малая фляжка маны
-item.player_mana:medium_pool_flask.name=Средняя фляжка маны
-item.player_mana:large_pool_flask.name=Большая фляжка маны
+item.player_mana:small_pool_flask.name=Малая колба маны
+item.player_mana:medium_pool_flask.name=Средняя колба маны
+item.player_mana:large_pool_flask.name=Большая колба маны
 item.player_mana:pool_flask.desc=Испейте, чтобы восстановить хранилище маны. (Не восстанавливает жезлы или снаряжение).
 
 mana.not_enough=Мало маны!
