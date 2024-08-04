@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import zettasword.player_mana.cap.ISoul;
 import zettasword.player_mana.cap.Soul;
 import zettasword.player_mana.cap.SoulStorage;
+import zettasword.player_mana.network.commands.CommandAddMana;
 import zettasword.player_mana.network.commands.CommandCheckMana;
 import zettasword.player_mana.network.commands.CommandSetMana;
 import zettasword.player_mana.network.commands.CommandSetMaxMana;
@@ -36,6 +37,7 @@ public class CommonProxy
     public void serverStarting(FMLServerStartingEvent event) {
        event.registerServerCommand(new CommandCheckMana());
        event.registerServerCommand(new CommandSetMana());
+       event.registerServerCommand(new CommandAddMana());
        event.registerServerCommand(new CommandSetMaxMana());
     }
 

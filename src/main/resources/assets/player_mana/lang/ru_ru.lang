@@ -22,5 +22,6 @@ commands.player_mana:checkMana.usage=/%1$s <игрок>
 commands.player_mana:checkMana.use=%s Маны: %s
 commands.player_mana:setMana.usage=/%1$s <игрок> [количество]
 commands.player_mana:setMaxMana.usage=/%1$s <игрок> [количество]
+commands.player_mana:addMana.usage=/%1$s <player> [количество]
 
 player_mana:wrong_dim=Невозможно телепортироваться в другое измерение.

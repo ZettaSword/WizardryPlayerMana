@@ -23,5 +23,6 @@ commands.player_mana:checkMana.usage=/%1$s <player>
 commands.player_mana:checkMana.use=%s Mana is: %s
 commands.player_mana:setMana.usage=/%1$s <player> [amount]
 commands.player_mana:setMaxMana.usage=/%1$s <player> [amount]
+commands.player_mana:addMana.usage=/%1$s <player> [amount]
 
 player_mana:wrong_dim=Can't teleport to another dimension

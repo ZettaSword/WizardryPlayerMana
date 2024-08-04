@@ -1,6 +1,9 @@
 package zettasword.player_mana.network.commands;
 
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
@@ -11,11 +14,11 @@ import zettasword.player_mana.cap.Mana;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class CommandSetMana extends CommandBase {
+public class CommandAddMana extends CommandBase {
     @Nonnull
     @Override
     public String getName() {
-        return "setPlayerMana";
+        return "addPlayerMana";
     }
 
     @Override
@@ -34,7 +37,7 @@ public class CommandSetMana extends CommandBase {
     public String getUsage(@Nonnull ICommandSender p_71518_1_){
         // Not ideal, but the way this is implemented means I have no choice. Only used in the help command, so in there
         // the custom command name will not display.
-        return "commands." + PlayerMana.MODID + ":setMana.usage";
+        return "commands." + PlayerMana.MODID + ":addMana.usage";
         // return I18n.format("commands." + Wizardry.MODID + ":ally.usage", Wizardry.settings.allyCommandName);
     }
 
@@ -51,7 +54,7 @@ public class CommandSetMana extends CommandBase {
     @Override
     public void execute(@Nonnull MinecraftServer server, @Nonnull ICommandSender sender, @Nonnull String[] args) throws CommandException {
         if(args.length != 2) {
-            throw new WrongUsageException("commands." + PlayerMana.MODID + ":setMana.usage", "setMana");
+            throw new WrongUsageException("commands." + PlayerMana.MODID + ":addMana.usage", "addMana");
         }
 
         EntityPlayerMP manaOf = getPlayer(server, sender, args[0]);
@@ -64,12 +67,7 @@ public class CommandSetMana extends CommandBase {
                 mana = Integer.parseInt(args[1]);
             } catch (Exception ignore){}
 
-            if (mana > soul.getMaxMP()){
-                soul.setMaxMP(manaOf, mana);
-                soul.setMP(manaOf, mana);
-                return;
-            }
-            soul.setMP(manaOf, mana);
+            soul.addMana(manaOf, mana);
         }
 
     }
