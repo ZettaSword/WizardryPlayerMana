@@ -61,10 +61,10 @@ public class CommandAddMana extends CommandBase {
 
         ISoul soul = Mana.getSoul(manaOf);
         if(soul != null){
-            int mana = (int) soul.getMP();
+            double mana = soul.getMP();
 
             try {
-                mana = Integer.parseInt(args[1]);
+                mana = Double.parseDouble(args[1]);
             } catch (Exception ignore){}
 
             soul.addMana(manaOf, mana);
